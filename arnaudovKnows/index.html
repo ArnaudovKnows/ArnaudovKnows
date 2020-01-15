@@ -1,0 +1,88 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="colorlib.com">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+  <link href="css/main.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="s003">
+    <form>
+      <h3>Arnaudov knows...</h3>
+      <div class="inner-form">
+        <div class="input-field second-wrap">
+          <input id="search" type="text" placeholder="Въведи името или специфична дума от условието на задачата" />
+        </div>
+      </div>
+      <div class="searches"></div>
+    </form>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+  </script>
+  <script>
+    let data = {
+      "6.	Ромбче от звездичи Напишете програма, която чете цяло положително число n, въведено от потребителя, и печата ромбче от звездички с размер n като в примерите по-долу:": 'https://pastebin.com/1TdEruBh',
+      "2.	Правоъгълник от N x N звездички Напишете програма, която чете цяло положително число n, въведено от потребителя, и печата на конзолата правоъгълник от n * n звездички.": 'https://pastebin.com/qmT8veND',
+      "3.	Квадрат от звездички Напишете програма, която чете число n, въведено от потребителя, и чертае квадрат от n * n звездички. Разликата с предходната задача е, че между всеки две звездички има по един интервал.": 'https://pastebin.com/9rtyzhUZ',
+      "4.	Триъгълник от долари Да се напише програма, която чете число n, въведено от потребителя, и печата триъгълник от долари като в примерите:": 'https://pastebin.com/hEG7MfiX',
+      "5.	Квадратна рамка Напишете програма, която чете цяло положително число n, въведено от потребителя, и чертае на конзолата квадратна рамка с размер n * n като в примерите по-долу:": 'https://pastebin.com/zJUZkRVh',
+      "1.	Правоъгълник от 10 x 10 звездички Напишете програма, която чертае на конзолата правоъгълник от 10 x 10 звездички.": 'https://pastebin.com/tKQqm0dG',
+      "7.	Коледна елха Напишете програма, която чете число n (1 ≤ n ≤ 100), въведено от потребителя, и печата коледна елха с размер n като в примерите по-долу:": 'https://pastebin.com/uH9KrH19',
+      "8.	Слънчеви очила Напишете програма, която чете цяло число n (3 ≤ n ≤ 100), въведено от потребителя, и печата слънчеви очила с размер 5*n x n като в примерите:": 'https://pastebin.com/3NN9Y2uD',
+      "9.	Къщичка Напишете програма, която чете число n (2 ≤ n ≤ 100), въведено от потребителя, и печата къщичка с размер n x n:": 'https://pastebin.com/r3TRM3nr',
+      "Диамант Напишете програма, която чете цяло число n (1 ≤ n ≤ 100), въведено от потребителя, и печата диамант с размер n като в примерите по-долу:": 'https://pastebin.com/2RvCZ2Gt',
+      "11.	Чертане на крепост Пета задача от междинния изпит на 6 март 2016. Тествайте решението си тук. Да се напише програма, която прочита от конзолата цяло число n, въведено от потребителя, и чертае крепост с ширина 2 * n колони и височина n реда като в примерите по-долу. Лявата и дясната колона във вътрешността си са широки n / 2.Вход Входът е цяло число n в интервала [3…1000].ИзходДа се отпечатат на конзолата n текстови реда, изобразяващи крепостта, точно както в примерите.": 'https://pastebin.com/6Pfi1ssc',
+      "12.	Пеперуда Пета задача от междинния изпит на 26 март 2016. Тествайте решението си тук. Да се напише програма, която прочита от конзолата цяло число n, въведено от потребителя, и чертае пеперуда с ширина 2 * n - 1 колони и височина 2 * (n - 2) + 1 реда като в примерите по-долу.  Лявата и дясната ѝ част са широки  n - 1.": 'https://pastebin.com/FipCEvhR',
+      "13.	Знак СТОП Пета задача от изпит на 24 април 2016. Тествайте решението си тук. Да се напише програма, която прочита от конзолата цяло число N, въведено от потребителя, и чертае предупредителен знак STOP с размери като в примерите по-долу.": 'https://pastebin.com/WVEFbYqV',
+    };
+
+    let typingTimer;
+    let doneTypingInterval = 500;
+    let search = document.getElementById("search");
+
+    $("#search").keyup(function () {
+      clearTimeout(typingTimer);
+      typingTimer = setTimeout(searchQuestion, doneTypingInterval);
+    });
+
+    $("#search").keydown(function () {
+      clearTimeout(typingTimer);
+    });
+
+    function searchQuestion() {
+      let searches = document.getElementsByClassName("searches")[0];
+      searches.innerHTML="";
+      let content = document.getElementById("search").value;
+        for (let question in data) {
+          let answer = data[question];
+          if (question.toLowerCase().indexOf(content.toLowerCase()) !== -1 && content !== "") {
+            let suggestion = document.createElement('div');
+            suggestion.classList.add("inner-form");
+            suggestion.classList.add("suggestion");
+            let field = document.createElement('div');
+            field.classList.add("input-field");
+            field.classList.add("second-wrap");
+            let link = document.createElement('a');
+            let p = document.createElement('p');
+            p.textContent = question;
+            link.href = answer;
+            link.appendChild(p);
+            field.appendChild(link);
+            suggestion.appendChild(field);
+            searches.appendChild(suggestion);
+          }
+        }
+    }
+  </script>
+</body>
+
+</html>
