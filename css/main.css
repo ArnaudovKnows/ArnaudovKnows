@@ -16,6 +16,10 @@ body {
   margin: 0;
 }
 
+.inner-form-suggestion {
+  padding: 10px;
+}
+
 /**
  * Add the correct display in IE 9-.
  */
